@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_teacher_panel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.raj.classtodo.teacherPanel"
+    tools:background="@color/colorPrimary">
+
+    <Button
+        android:text="Start Today"
+        android:textSize="40dp"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:id="@+id/startButton"
+        android:elevation="0dp"
+        android:onClick="goStartToday"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="7dp"
+        android:layout_marginEnd="7dp" />
+
+    <Button
+        android:text="Month View"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/monthButton"
+        android:layout_marginTop="12dp"
+        android:onClick="goMonthView"
+        android:layout_below="@+id/startButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Edit Student info"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editButton"
+        android:onClick="goEdit"
+        android:layout_below="@+id/monthButton"
+        android:layout_alignLeft="@+id/monthButton"
+        android:layout_alignStart="@+id/monthButton" />
+</RelativeLayout>

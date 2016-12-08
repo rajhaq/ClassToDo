@@ -16,30 +16,30 @@
         android:text="Teacher"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        android:id="@+id/buttonTeacher"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/teachers"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="goTeacher"/>
 
     <Button
-        android:text="Student"
+        android:text="Parents"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-
-        android:id="@+id/students"
-        android:layout_below="@+id/teachers"
-        android:layout_alignLeft="@+id/teachers"
-        android:layout_alignStart="@+id/teachers" />
+        android:id="@+id/buttonParents"
+        android:layout_below="@+id/buttonStudents"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="goParents"/>
 
     <Button
-        android:text="Parent"
+        android:text="Students"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/parents"
-        android:layout_below="@+id/students"
-        android:layout_alignLeft="@+id/students"
-        android:layout_alignStart="@+id/students" />
+        android:id="@+id/buttonStudents"
+        android:layout_below="@+id/buttonTeacher"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="goStudents"/>
 </RelativeLayout>
