@@ -8,6 +8,57 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.raj.classtodo.patentsPanel">
+    tools:context="com.example.raj.classtodo.patentsPanel"
+    android:background="@color/colorBackground"
+    >
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/textColor"
+        android:padding="7dp">
+
+        <TextView
+            android:text="23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Date"
+            android:textSize="36sp"
+            tools:textSize="60sp"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_rowSpan="3"
+            android:layout_columnSpan="3"
+    />
+
+        <TextView
+            android:text="December"
+            android:id="@+id/monthName"
+            android:layout_column="0"
+            android:layout_row="4"/>
+        <TextView
+            android:text="Mr. X"
+            android:textSize="18sp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:id="@+id/teacehrName"
+            android:layout_column="3"
+            android:layout_row="0"
+            android:layout_width="wrap_content"
+            android:paddingLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Tomorrow will be no class"
+            android:id="@+id/noticeText"
+            android:textStyle="italic"
+            android:textSize="20dp"
+            android:layout_column="3"
+            android:layout_row="1"
+            android:padding="5dp"/>
+
+
+    </GridLayout>
 </RelativeLayout>

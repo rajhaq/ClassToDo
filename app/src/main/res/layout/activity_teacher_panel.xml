@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.raj.classtodo.teacherPanel"
-    tools:background="@color/colorPrimary">
+    android:background="@color/colorBackground">
 
     <Button
         android:text="Start Today"
@@ -19,21 +19,24 @@
         android:id="@+id/startButton"
         android:elevation="0dp"
         android:onClick="goStartToday"
+        android:background="@color/buttonColor"
+        android:textColor="@color/textColor"
+        android:padding="5dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="7dp"
-        android:layout_marginEnd="7dp" />
+        android:layout_centerHorizontal="true"
 
+        />
     <Button
         android:text="Month View"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:id="@+id/monthButton"
-        android:layout_marginTop="12dp"
         android:onClick="goMonthView"
         android:layout_below="@+id/startButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@color/buttonColor"
+        android:textColor="@color/textColor"
+        android:layout_margin="5dp"/>
 
     <Button
         android:text="Edit Student info"
@@ -41,7 +44,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/editButton"
         android:onClick="goEdit"
+        android:background="@color/buttonColor"
+        android:textColor="@color/textColor"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
         android:layout_below="@+id/monthButton"
-        android:layout_alignLeft="@+id/monthButton"
-        android:layout_alignStart="@+id/monthButton" />
+/>
+
+
 </RelativeLayout>
