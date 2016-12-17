@@ -15,7 +15,7 @@ public class teacherPanel extends AppCompatActivity {
     }
     public void goStartToday(View view)
     {
-        Intent i=new Intent (this, studentPanel.class);
+        Intent i=new Intent (this, Today.class);
 
         startActivity(i);
     }
@@ -28,6 +28,12 @@ public class teacherPanel extends AppCompatActivity {
     public void goEdit(View view)
     {
         Intent i=new Intent (this, studentPanel.class);
+
+        startActivity(i);
+    }
+    public void goNoticeEdit(View view)
+    {
+        Intent i=new Intent (this, noticePanel.class);
 
         startActivity(i);
     }

@@ -11,4 +11,34 @@
     tools:context="com.example.raj.classtodo.studentPanel"
     android:background="@color/colorBackground">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/headStudentLogin"
+        android:textAlignment="center"
+        android:text="Submit Your ID"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/black" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:text="ex: 1412020036"
+        android:layout_marginTop="76dp"
+        android:layout_below="@+id/headStudentLogin"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submitID"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

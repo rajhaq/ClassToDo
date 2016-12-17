@@ -49,7 +49,19 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="5dp"
         android:layout_below="@+id/monthButton"
-/>
+        />
+    <Button
+        android:text="Notice Panel"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/addNoticeButton"
+        android:onClick="goNoticeEdit"
+        android:background="@color/buttonColor"
+        android:textColor="@color/textColor"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/editButton"
+        />
 
 
 </RelativeLayout>

@@ -38,6 +38,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.raj.classtodo.MainActivity" />
         </activity>
+        <activity
+            android:name=".Today"
+            android:parentActivityName=".teacherPanel" />
+        <activity android:name=".noticePanel"
+            android:parentActivityName=".teacherPanel" ></activity>
     </application>
 
 </manifest>
