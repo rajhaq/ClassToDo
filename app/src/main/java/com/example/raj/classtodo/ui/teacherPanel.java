@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 
+import com.example.raj.classtodo.AddToday;
 import com.example.raj.classtodo.R;
+import com.example.raj.classtodo.model.StudentData;
 
 public class teacherPanel extends AppCompatActivity {
 
@@ -18,7 +20,7 @@ public class teacherPanel extends AppCompatActivity {
     }
     public void goStartToday(View view)
     {
-        Intent i=new Intent (this, Today.class);
+        Intent i=new Intent (this,AddToday.class);
 
         startActivity(i);
     }
