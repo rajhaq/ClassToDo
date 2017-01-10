@@ -1,4 +1,4 @@
-package com.example.raj.classtodo;
+package com.example.raj.classtodo.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.net.Uri;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.CheckBox;
+
+import com.example.raj.classtodo.R;
 
 public class Today extends AppCompatActivity {
 

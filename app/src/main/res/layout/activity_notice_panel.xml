@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.raj.classtodo.noticePanel"
+    tools:context="com.example.raj.classtodo.ui.noticePanel"
     android:background="@color/colorBackground">
 
     <EditText
@@ -43,14 +43,43 @@
         android:onClick="deleteNoticeClicked" />
 
     <TextView
+        android:text="ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        android:layout_below="@id/addNoticeButton"
+        android:id="@+id/noticeID" />
+    <TextView
+        android:text="Notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addNoticeButton"
+        android:paddingTop="40dp"
+        android:paddingLeft="90dp"
+        android:id="@+id/noticeNotice" />
+    <TextView
+        android:text="Number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:layout_below="@id/noticeID"
+        android:id="@+id/noticeNumberText" />
+    <TextView
         android:text="Log"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@id/noticeNotice"
+        android:paddingTop="10dp"
+        android:paddingLeft="90dp"
         android:id="@+id/noticeLogText" />
-
-
+<!--
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/noticeLogText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:id="@+id/noticeList" />-->
 
 
 </RelativeLayout>

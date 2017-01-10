@@ -7,11 +7,12 @@ import android.content.Context;
 import android.content.ContentValues;
 
 public class MyDBHandler extends SQLiteOpenHelper{
-    private static final int DATABASE_VERSION=1;
+    private static final int DATABASE_VERSION=2;
     private static final String DATABASE_NAME="Classtodo.db";
     public static final String TABLE_PRODUCTS="notice";
     public static final String COLUMN_ID="_id";
     public static final String COLUMN_PRODUCTNAME="_productname";
+    public String[] dbS;
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
@@ -34,6 +35,13 @@ public class MyDBHandler extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
         onCreate(db);
     }
+    public void clearDB()
+    {
+        SQLiteDatabase db=getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
+        onCreate(db);
+    }
+
     //add new raw to db
     public  void addProduct(Product product)
     {
@@ -47,7 +55,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
     public void deleteProduct(String productName)
     {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("DELETE FROM "+TABLE_PRODUCTS+ " WHERE "+ COLUMN_PRODUCTNAME + "=\"" +productName + "\";" );
+        db.execSQL("DELETE FROM "+TABLE_PRODUCTS+ " WHERE "+ COLUMN_ID + "=\"" +productName + "\";" );
     }
 /*
     public String databaseToString()
@@ -90,6 +98,47 @@ public String databaseToString(){
     db.close();
     return dbString;
 }
+    public String databaseToId(){
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_PRODUCTS + " WHERE 1;";
+
+        Cursor c = db.rawQuery(query, null);
+
+        c.moveToFirst();
+
+        while (!c.isAfterLast()){
+            if (c.getString(c.getColumnIndex("_id")) != null){
+                dbString += c.getString(c.getColumnIndex("_id"));
+                dbString += "\n";
+            }
+            c.moveToNext();
+        }
+        db.close();
+        return dbString;
+    }
+    public String databaseS(){
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_PRODUCTS + " WHERE 1;";
+
+        Cursor c = db.rawQuery(query, null);
+
+        c.moveToFirst();
+        int i=0;
+        while (!c.isAfterLast()){
+            if (c.getString(c.getColumnIndex("_productname")) != null){
+                dbString = c.getString(c.getColumnIndex("_productname"));
+                dbS[i]=dbString;
+                i++;
+            }
+            c.moveToNext();
+        }
+        db.close();
+        return dbString;
+    }
 
 
 

@@ -1,9 +1,11 @@
-package com.example.raj.classtodo;
+package com.example.raj.classtodo.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
+
+import com.example.raj.classtodo.R;
 
 public class teacherPanel extends AppCompatActivity {
 
@@ -12,6 +14,7 @@ public class teacherPanel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_panel);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
     public void goStartToday(View view)
     {
@@ -27,7 +30,7 @@ public class teacherPanel extends AppCompatActivity {
     }
     public void goEdit(View view)
     {
-        Intent i=new Intent (this, studentPanel.class);
+        Intent i=new Intent (this, EditStudent.class);
 
         startActivity(i);
     }

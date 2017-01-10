@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.view.View;
 import android.view.Window;
 
+import com.example.raj.classtodo.ui.patentsPanel;
+import com.example.raj.classtodo.ui.studentPanel;
+import com.example.raj.classtodo.ui.teacherPanel;
+
 public class MainActivity extends AppCompatActivity {
 
 

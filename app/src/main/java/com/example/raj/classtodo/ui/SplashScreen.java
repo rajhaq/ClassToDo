@@ -1,9 +1,12 @@
-package com.example.raj.classtodo;
+package com.example.raj.classtodo.ui;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
+
+import com.example.raj.classtodo.MainActivity;
+import com.example.raj.classtodo.R;
 
 public class SplashScreen extends Activity {
 

@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen">
+        <activity android:name=".ui.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,13 +22,13 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity
-            android:name=".teacherPanel"
+            android:name=".ui.teacherPanel"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".studentPanel"
+            android:name=".ui.studentPanel"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".patentsPanel"
+            android:name=".ui.patentsPanel"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".TeacherLoginActivity"
@@ -39,10 +39,12 @@
                 android:value="com.example.raj.classtodo.MainActivity" />
         </activity>
         <activity
-            android:name=".Today"
-            android:parentActivityName=".teacherPanel" />
-        <activity android:name=".noticePanel"
-            android:parentActivityName=".teacherPanel" ></activity>
+            android:name=".ui.Today"
+            android:parentActivityName=".ui.teacherPanel" />
+        <activity
+            android:name=".ui.noticePanel"
+            android:parentActivityName=".ui.teacherPanel" />
+        <activity android:name=".ui.EditStudent"></activity>
     </application>
 
 </manifest>
