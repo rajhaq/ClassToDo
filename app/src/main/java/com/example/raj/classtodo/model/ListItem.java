@@ -6,6 +6,8 @@ package com.example.raj.classtodo.model;
 
 public class ListItem {
     private int imageResId;
+    private String id;
+
     private String subTitle;
     private String title;
     private boolean favourite = false;
@@ -40,5 +42,13 @@ public class ListItem {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

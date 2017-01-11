@@ -1,15 +1,22 @@
 package com.example.raj.classtodo.model;
 
-import com.example.raj.classtodo.R;
+import android.database.Cursor;
 
+import com.example.raj.classtodo.R;
+import com.example.raj.classtodo.StudentHelper;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Raj on 1/11/2017.
  */
 
 public class StudentData {
+
     private static final String[] titles = {"Nothingness cannot be defined",
             "Time is like a river made up of the events which happen, and a violent stream; " +
                     "for as soon as a thing has been seen, it is carried away, and another comes" +
@@ -36,6 +43,8 @@ public class StudentData {
             "Jim Rohn"
 
     };
+
+
     private static final int icon = R.drawable.ic_tonality_black_24dp;
 
     public static List<ListItem> getListData() {
@@ -54,5 +63,4 @@ public class StudentData {
         }
         return data;
     }
-
 }

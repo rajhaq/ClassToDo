@@ -7,8 +7,12 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.raj.classtodo.model.ListItem;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -68,8 +72,20 @@ public class StudentHelper extends SQLiteOpenHelper{
     public Cursor getAllData()
     {
         SQLiteDatabase db=this.getWritableDatabase();
+
         Cursor res=db.rawQuery("select * from "+values[1], null);
+
+
         return res;
     }
+    public String updateData(String id, String date)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        String query="UPDATE "+ values[1] +"  SET date"+date+" ='1' WHERE id="+id;
+        db.execSQL(query);
+        return query;
+    }
+
+
 
 }

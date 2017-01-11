@@ -1,25 +1,31 @@
 package com.example.raj.classtodo.ui;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.raj.classtodo.R;
 import com.example.raj.classtodo.StudentHelper;
+import com.example.raj.classtodo.model.ListItem;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class EditStudent extends AppCompatActivity {
-    StudentHelper studentDB;
+    public static StudentHelper studentDB;
     EditText editName,editID,editMobile;
     Button addButton,dropButton,viewAllButton;
+    TextView date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Calendar cal = Calendar.getInstance();
@@ -39,9 +45,11 @@ public class EditStudent extends AppCompatActivity {
         addButton=(Button)findViewById(R.id.buttonAddStudent);
         dropButton=(Button)findViewById(R.id.buttonDrop);
         viewAllButton=(Button)findViewById(R.id.buttonViewAll);
+        date=(TextView) findViewById(R.id.todayDate);
         AdddData();
         DropData();
         viewAll();
+        date.setText(strDate);
 
 
     }
@@ -96,6 +104,7 @@ public class EditStudent extends AppCompatActivity {
                             StringBuffer buffer=new StringBuffer();
                             while(res.moveToNext())
                             {
+
                                 buffer.append("Name :"+res.getString(1)+"\n");
                                 buffer.append("ID :"+res.getString(2)+"\n");
                                 buffer.append("Mobile :"+res.getString(3)+"\n");
@@ -118,6 +127,7 @@ public class EditStudent extends AppCompatActivity {
                 }
         );
     }
+
     public void showMsg(String title,String Message)
     {
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
@@ -126,5 +136,6 @@ public class EditStudent extends AppCompatActivity {
         builder.setMessage(Message);
         builder.show();
     }
+
 
 }
