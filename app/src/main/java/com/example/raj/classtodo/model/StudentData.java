@@ -39,7 +39,7 @@ public class StudentData {
     };
 
 
-    private static final int icon = R.drawable.ic_tonality_black_24dp;
+    private static final int icon = R.drawable.student01;
 
     public static List<ListItem> getListData() {
         List<ListItem> data = new ArrayList<>();

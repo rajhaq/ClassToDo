@@ -125,17 +125,14 @@ public class EditStudent extends AppCompatActivity {
                                 buffer.append("Name :"+res.getString(1)+"\n");
                                 buffer.append("ID :"+res.getString(2)+"\n");
                                 buffer.append("Mobile :"+res.getString(3)+"\n");
-                                buffer.append("07 :"+res.getString(10)+"\n\n");
-                                buffer.append("08 :"+res.getString(11)+"\n\n");
-                                buffer.append("09 :"+res.getString(12)+"\n\n");
-                                buffer.append("10 :"+res.getString(13)+"\n\n");
-                                buffer.append("11 :"+res.getString(14)+"\n\n");
-                                buffer.append("12 :"+res.getString(15)+"\n\n");
-                                buffer.append("13 :"+res.getString(16)+"\n\n");
                                 buffer.append("14 :"+res.getString(17)+"\n\n");
                                 buffer.append("15 :"+res.getString(18)+"\n\n");
                                 buffer.append("16 :"+res.getString(19)+"\n\n");
                                 buffer.append("17 :"+res.getString(20)+"\n\n");
+                                buffer.append("18 :"+res.getString(21)+"\n\n");
+                                buffer.append("19 :"+res.getString(22)+"\n\n");
+                                buffer.append("20 :"+res.getString(23)+"\n\n");
+                                buffer.append("21 :"+res.getString(24)+"\n\n");
                             }
                             showMsg("Data", buffer.toString());
                         }

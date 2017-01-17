@@ -26,6 +26,9 @@ public class AddToday extends AppCompatActivity implements StudentAdapter.ItemCl
     private static final String EXTRA_ATTR = "EXTRA_ATTR";
     private static final String EXTRA_1 = "EXTRA_1";
     private static final String EXTRA_2 = "EXTRA_2";
+    private static final int[] icons = {R.drawable.student01,R.drawable.student02,R.drawable.student03,R.drawable.student04,R.drawable.student05,
+            R.drawable.student06,R.drawable.student07,R.drawable.student08,R.drawable.student09,R.drawable.student10};
+
 
     private RecyclerView recView;
     private StudentAdapter adapter;
@@ -125,6 +128,7 @@ public class AddToday extends AppCompatActivity implements StudentAdapter.ItemCl
             //create ListItem with dummy data, then add them to our List
             for (int i = 0; res.moveToNext(); i++) {
                 ListItem item = new ListItem();
+                item.setImageResId(icons[i%10]);
                 item.setTitle(res.getString(2));
                 item.setSubTitle(res.getString(1));
                 item.setId(res.getString(0));

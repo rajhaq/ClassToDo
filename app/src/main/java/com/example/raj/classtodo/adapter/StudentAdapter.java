@@ -50,6 +50,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.DerpHold
     public void onBindViewHolder(DerpHolder holder, int position) {
         ListItem item = listData.get(position);
         holder.title.setText(item.getTitle());
+        holder.thumbnail.setImageResource(item.getImageResId());
         holder.subTitle.setText(item.getSubTitle());
         if (item.isFavourite()){
             holder.secondaryIcon.setImageResource(R.drawable.ic_star_black_24dp);
