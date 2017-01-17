@@ -7,8 +7,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.raj.classtodo.MyDBHandler;
-import com.example.raj.classtodo.Product;
+import com.example.raj.classtodo.model.MyDBHandler;
+import com.example.raj.classtodo.adapter.Product;
 import com.example.raj.classtodo.R;
 
 

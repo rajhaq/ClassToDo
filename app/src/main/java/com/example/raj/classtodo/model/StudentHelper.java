@@ -1,4 +1,4 @@
-package com.example.raj.classtodo;
+package com.example.raj.classtodo.model;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -69,6 +69,13 @@ public class StudentHelper extends SQLiteOpenHelper{
         else
             return true;
     }
+    public void deleteData(String id)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        String query="DELETE FROM "+ values[1] + " WHERE id='"+id+"';";
+        db.execSQL(query);
+
+    }
     public Cursor getAllData()
     {
         SQLiteDatabase db=this.getWritableDatabase();
@@ -78,10 +85,17 @@ public class StudentHelper extends SQLiteOpenHelper{
 
         return res;
     }
-    public String updateData(String id, String date)
+    public String updateData(String id, String date,String x)
     {
         SQLiteDatabase db=this.getWritableDatabase();
-        String query="UPDATE "+ values[1] +"  SET date"+date+" ='1' WHERE id="+id;
+        String query="UPDATE "+ values[1] +"  SET date"+date+" ='"+x+"' WHERE id="+id;
+        db.execSQL(query);
+        return query;
+    }
+    public String updateStudent(String name, String id,String mobile, String idd)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        String query="UPDATE "+ values[1] +"  SET name='"+name+"', sid='"+id+"', mobile='"+mobile+"' WHERE id='"+idd+"';";
         db.execSQL(query);
         return query;
     }

@@ -1,4 +1,4 @@
-package com.example.raj.classtodo;
+package com.example.raj.classtodo.adapter;
 
 /**
  * Created by Raj on 12/13/2016.

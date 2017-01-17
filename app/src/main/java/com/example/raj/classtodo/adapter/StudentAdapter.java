@@ -80,8 +80,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.DerpHold
             thumbnail = (ImageView)itemView.findViewById(R.id.im_item_icon);
             secondaryIcon = (ImageView)itemView.findViewById(R.id.im_item_icon_secondary);
             secondaryIcon.setOnClickListener(this);
-            subTitle = (TextView)itemView.findViewById(R.id.lbl_item_sub_title);
-            title = (TextView)itemView.findViewById(R.id.lbl_item_text);
+            subTitle = (TextView)itemView.findViewById(R.id.lbl_item_text);
+            title = (TextView)itemView.findViewById(R.id.lbl_item_sub_title);
             container = (View)itemView.findViewById(R.id.cont_item_root);
             container.setOnClickListener(this);
         }

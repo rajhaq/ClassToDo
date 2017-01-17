@@ -1,4 +1,4 @@
-package com.example.raj.classtodo;
+package com.example.raj.classtodo.ui;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -8,10 +8,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.example.raj.classtodo.R;
 import com.example.raj.classtodo.adapter.StudentAdapter;
 import com.example.raj.classtodo.model.ListItem;
-import com.example.raj.classtodo.model.StudentData;
-import com.example.raj.classtodo.ui.EditStudent;
+import com.example.raj.classtodo.model.StudentHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,6 +24,8 @@ public class AddToday extends AppCompatActivity implements StudentAdapter.ItemCl
     private static final String BUNDLE_EXTRAS = "BUNDLE_EXTRAS";
     private static final String EXTRA_QUOTE = "EXTRA_QUOTE";
     private static final String EXTRA_ATTR = "EXTRA_ATTR";
+    private static final String EXTRA_1 = "EXTRA_1";
+    private static final String EXTRA_2 = "EXTRA_2";
 
     private RecyclerView recView;
     private StudentAdapter adapter;
@@ -73,9 +75,9 @@ public class AddToday extends AppCompatActivity implements StudentAdapter.ItemCl
         Bundle extras = new Bundle();
         extras.putString(EXTRA_QUOTE, item.getTitle());
         extras.putString(EXTRA_ATTR, item.getSubTitle());
+        extras.putString(EXTRA_1, item.getId());
+        extras.putString(EXTRA_2, item.getMobile());
         i.putExtra(BUNDLE_EXTRAS, extras);
-        String x=studentDB.updateData(item.getId(),values[2]);
-        Toast.makeText(AddToday.this,x,Toast.LENGTH_LONG).show();
 
         startActivity(i);
 
@@ -88,10 +90,12 @@ public class AddToday extends AppCompatActivity implements StudentAdapter.ItemCl
         // res.getPosition()==1, int= values[2]+4;,Cursor res = studentDB.getAllData();
         if (item.isFavourite()){
             item.setFavourite(false);
-            Toast.makeText(AddToday.this,"Star empty",Toast.LENGTH_SHORT).show();
+            String x=studentDB.updateData(item.getId(),values[2],"0");
+            Toast.makeText(AddToday.this,x,Toast.LENGTH_LONG).show();
         } else {
             item.setFavourite(true);
-            Toast.makeText(AddToday.this,"Star fill",Toast.LENGTH_SHORT).show();
+            String x=studentDB.updateData(item.getId(),values[2],"1");
+            Toast.makeText(AddToday.this,x,Toast.LENGTH_LONG).show();
         }
 
 
@@ -113,7 +117,6 @@ public class AddToday extends AppCompatActivity implements StudentAdapter.ItemCl
 
 
         Cursor res = studentDB.getAllData();
-        res.moveToFirst();
         java.util.List<ListItem> data = new ArrayList<>();
 
         //Repeat process 4 times, so that we have enough data to demonstrate a scrollable
@@ -125,6 +128,8 @@ public class AddToday extends AppCompatActivity implements StudentAdapter.ItemCl
                 item.setTitle(res.getString(2));
                 item.setSubTitle(res.getString(1));
                 item.setId(res.getString(0));
+                item.setMobile(res.getString(3));
+
                 data.add(item);
             }
         }

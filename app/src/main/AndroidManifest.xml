@@ -45,8 +45,10 @@
             android:name=".ui.noticePanel"
             android:parentActivityName=".ui.teacherPanel" />
         <activity android:name=".ui.EditStudent" />
-        <activity android:name=".AddToday" />
-        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".ui.AddToday" />
+        <activity
+            android:name=".ui.DetailActivity"
+            android:parentActivityName=".ui.AddToday"></activity>
     </application>
 
 </manifest>

@@ -1,10 +1,12 @@
-package com.example.raj.classtodo;
+package com.example.raj.classtodo.model;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.Cursor;
 import android.content.Context;
 import android.content.ContentValues;
+
+import com.example.raj.classtodo.adapter.Product;
 
 public class MyDBHandler extends SQLiteOpenHelper{
     private static final int DATABASE_VERSION=2;

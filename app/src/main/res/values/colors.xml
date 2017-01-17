@@ -6,4 +6,5 @@
     <color name="colorBackground">#7bc692</color>
     <color name="textColor">#ffffff</color>
     <color name="buttonColor">#006d4e</color>
+    <color name="delete">#961111</color>
 </resources>

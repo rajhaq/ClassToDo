@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
 
-import com.example.raj.classtodo.AddToday;
 import com.example.raj.classtodo.R;
-import com.example.raj.classtodo.model.StudentData;
 
 public class teacherPanel extends AppCompatActivity {
 

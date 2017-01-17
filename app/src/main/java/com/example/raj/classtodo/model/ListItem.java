@@ -10,6 +10,8 @@ public class ListItem {
 
     private String subTitle;
     private String title;
+    private String mobile;
+
     private boolean favourite = false;
 
     public String getSubTitle() {
@@ -50,5 +52,13 @@ public class ListItem {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 }

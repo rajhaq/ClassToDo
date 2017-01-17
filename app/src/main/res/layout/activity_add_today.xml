@@ -8,13 +8,29 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.raj.classtodo.AddToday"
+    tools:context="com.example.raj.classtodo.ui.AddToday"
     android:background="@color/colorBackground">
+
+    <TextView
+        android:text="Student List"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:paddingTop="5dp"
+        android:textColor="@color/textColor"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:background="@color/buttonColor"
+        android:textSize="25dp"
+        android:id="@+id/textView4" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/rec_list"
-        >
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp">
     </android.support.v7.widget.RecyclerView>
 </RelativeLayout>

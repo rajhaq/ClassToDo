@@ -3,7 +3,7 @@
     android:id="@+id/cont_item_root"
     android:layout_width="match_parent"
     android:layout_height="72dp"
-    android:background="@drawable/background_state_drawable"
+    android:background="@color/textColor"
     android:clickable="true"
     >
 
@@ -16,31 +16,17 @@
         android:src="@drawable/ic_tonality_black_24dp" />
 
     <TextView
-        android:id="@+id/lbl_item_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/im_item_icon"
-        android:layout_marginLeft="72dp"
-        android:layout_marginRight="48dp"
-        android:ellipsize="end"
-        android:fontFamily="sans-serif"
-        android:singleLine="true"
-        android:text="Sois comme l'eau mon ami"
-        android:textColor="@android:color/black"
-        android:textSize="16sp" />
-
-    <TextView
         android:id="@+id/lbl_item_sub_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/lbl_item_text"
         android:layout_marginLeft="72dp"
         android:layout_marginRight="48dp"
         android:ellipsize="end"
         android:fontFamily="sans-serif"
         android:singleLine="true"
         android:text="Mononc' J"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:layout_below="@+id/lbl_item_text" />
 
     <ImageView
         android:id="@+id/im_item_icon_secondary"
@@ -53,5 +39,22 @@
         android:src="@drawable/ic_star_border_black_24dp"
         android:background="@drawable/background_state_drawable"
         />
+
+    <TextView
+        android:id="@+id/lbl_item_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:singleLine="true"
+        android:text="Sois comme l'eau mon ami"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:layout_alignBottom="@+id/im_item_icon"
+        android:layout_alignLeft="@+id/lbl_item_sub_title"
+        android:layout_alignStart="@+id/lbl_item_sub_title"
+        android:layout_marginBottom="11dp"
+        android:layout_alignRight="@+id/lbl_item_sub_title"
+        android:layout_alignEnd="@+id/lbl_item_sub_title" />
 
 </RelativeLayout>

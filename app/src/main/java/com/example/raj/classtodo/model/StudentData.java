@@ -1,15 +1,9 @@
 package com.example.raj.classtodo.model;
 
-import android.database.Cursor;
-
 import com.example.raj.classtodo.R;
-import com.example.raj.classtodo.StudentHelper;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by Raj on 1/11/2017.

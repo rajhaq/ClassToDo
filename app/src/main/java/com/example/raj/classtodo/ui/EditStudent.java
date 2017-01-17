@@ -1,7 +1,6 @@
 package com.example.raj.classtodo.ui;
 
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,19 +11,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.raj.classtodo.R;
-import com.example.raj.classtodo.StudentHelper;
-import com.example.raj.classtodo.model.ListItem;
+import com.example.raj.classtodo.model.StudentHelper;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Locale;
 
 public class EditStudent extends AppCompatActivity {
     public static StudentHelper studentDB;
-    EditText editName,editID,editMobile;
-    Button addButton,dropButton,viewAllButton;
+    EditText editName,editID,editMobile,deleteBox;
+    Button addButton,dropButton,viewAllButton,deleteButton;
     TextView date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +35,19 @@ public class EditStudent extends AppCompatActivity {
         int dbv=Integer.parseInt(values[0]);
         studentDB=new StudentHelper(this, dbv);
 
+        deleteBox =(EditText)findViewById(R.id.deleteID);
         editName =(EditText)findViewById(R.id.editStudentName);
         editID =(EditText)findViewById(R.id.editStudentId);
         editMobile =(EditText)findViewById(R.id.editStudentMobile);
         addButton=(Button)findViewById(R.id.buttonAddStudent);
         dropButton=(Button)findViewById(R.id.buttonDrop);
         viewAllButton=(Button)findViewById(R.id.buttonViewAll);
+        deleteButton=(Button)findViewById(R.id.buttonDelete);
         date=(TextView) findViewById(R.id.todayDate);
         AdddData();
         DropData();
         viewAll();
+        deleteData();
         date.setText(strDate);
 
 
@@ -69,6 +68,23 @@ public class EditStudent extends AppCompatActivity {
                     }
                 }
         );
+
+    }
+    public void deleteData()
+    {
+        deleteButton.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View v)
+                    {
+                        studentDB.deleteData(deleteBox.getText().toString());
+
+                            Toast.makeText(EditStudent.this,"Data deleted",Toast.LENGTH_LONG).show();
+
+                    }
+                }
+        );
+
     }
     public void DropData()
     {
@@ -105,6 +121,7 @@ public class EditStudent extends AppCompatActivity {
                             while(res.moveToNext())
                             {
 
+                                buffer.append("Default id :"+res.getString(0)+"\n");
                                 buffer.append("Name :"+res.getString(1)+"\n");
                                 buffer.append("ID :"+res.getString(2)+"\n");
                                 buffer.append("Mobile :"+res.getString(3)+"\n");
