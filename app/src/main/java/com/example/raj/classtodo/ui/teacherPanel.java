@@ -4,8 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.view.View;
-
 import com.example.raj.classtodo.R;
+import com.example.raj.classtodo.Pdf;
+
 
 public class teacherPanel extends AppCompatActivity {
 
@@ -37,6 +38,12 @@ public class teacherPanel extends AppCompatActivity {
     public void goNoticeEdit(View view)
     {
         Intent i=new Intent (this, noticePanel.class);
+
+        startActivity(i);
+    }
+    public void goPDF(View view)
+    {
+        Intent i=new Intent (this, Pdf.class);
 
         startActivity(i);
     }
