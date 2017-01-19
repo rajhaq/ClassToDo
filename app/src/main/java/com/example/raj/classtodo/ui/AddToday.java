@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.raj.classtodo.R;
@@ -67,6 +71,30 @@ public class AddToday extends AppCompatActivity implements StudentAdapter.ItemCl
             item.setFavourite(true);
             Toast.makeText(AddToday.this,"Star fill",Toast.LENGTH_SHORT).show();
         }*/
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater mi=getMenuInflater();
+        mi.inflate(R.menu.actionbar_add_student,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.barSms:
+                startActivity(new Intent(this,Sms.class));
+                return true;
+
+            case R.id.barAddStudent:
+                startActivity(new Intent(this,EditStudent.class));
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
     @Override

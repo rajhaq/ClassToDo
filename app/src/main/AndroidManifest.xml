@@ -50,7 +50,8 @@
         <activity
             android:name=".ui.DetailActivity"
             android:parentActivityName=".ui.AddToday" />
-        <activity android:name=".Pdf"></activity>
+        <activity android:name=".Pdf" />
+        <activity android:name=".ui.Sms"></activity>
     </application>
 
 </manifest>

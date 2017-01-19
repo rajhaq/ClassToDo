@@ -26,14 +26,15 @@ import java.util.Locale;
 
 public class Pdf extends AppCompatActivity {
     public static StudentHelper studentDB;
+    Calendar cal = Calendar.getInstance();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MMMM/d/E", Locale.US); // Set your locale!
+    String strDate = sdf.format(cal.getTime());
+
+    String[] values = strDate.split("/",0);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Calendar cal = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MMMM/d/E", Locale.US); // Set your locale!
-        String strDate = sdf.format(cal.getTime());
 
-        String[] values = strDate.split("/",0);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf);
         int dbv=Integer.parseInt(values[0]);
@@ -57,7 +58,7 @@ public class Pdf extends AppCompatActivity {
     {
         EditText text=(EditText)findViewById(R.id.editPdf);
         Document doc=new Document(PageSize.A3.rotate());
-        String outPath= Environment.getExternalStorageDirectory()+"/student.pdf";
+        String outPath= Environment.getExternalStorageDirectory()+"/student2.pdf";
         try {
             PdfWriter.getInstance(doc,new FileOutputStream(outPath));
             doc.open();
@@ -86,22 +87,24 @@ public class Pdf extends AppCompatActivity {
                         else
                         {
                             StringBuffer buffer=new StringBuffer();
-                            buffer.append("Name_(ID)                   |01___|02___|03___|04___|05___|06___|07___|08___|09___|10___|11   |12    |13   |14   |15   |16    |17   |18    |19   |20    |21   |22    |23   |24    |25   |26    |27  |28    |29   |30\n");
+                            buffer.append("________________________________________________________________________________"+values[1]+"__________________________________________________________________________\n");
                             while(res.moveToNext())
                             {
                                 x= res.getString(2).length();
-                                buffer.append(res.getString(1)+"\n("+res.getString(2)+")              ");
+                                buffer.append(res.getString(1)+"\n("+res.getString(2)+")__");
 /*                                for(int i=x;i<=25;i++)
                                     buffer.append(" ");*/
 
-                                for(int i=5;i<=35;i++) {
+                                for(int i=4;i<=34;i++) {
                                     k=res.getString(i);
                                     if(k==null)
-                                        buffer.append("|A.___");
+                                        buffer.append(i-4+"(A)-");
                                     else
-                                        buffer.append("|P.___");
+                                        buffer.append(i-4+"(P)-");
 
                                 }
+
+                                buffer.append("Bonus:"+res.getString(35));
                                 buffer.append("\n");
                             }
                             return buffer.toString();
