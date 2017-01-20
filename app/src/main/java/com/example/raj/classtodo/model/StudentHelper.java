@@ -1,11 +1,14 @@
 package com.example.raj.classtodo.model;
 
+import android.app.Notification;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.v4.app.NotificationCompat;
+import android.view.View;
 
 import com.example.raj.classtodo.model.ListItem;
 
@@ -50,12 +53,21 @@ public class StudentHelper extends SQLiteOpenHelper{
         onCreate(db);
 
     }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void dropDB() {
+        SQLiteDatabase db=this.getWritableDatabase();
+        String query="DETACH DATABASE StudentInfo.db";
+        db.execSQL(query);
         onCreate(db);
 
     }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        onCreate(db);
+
+    }
+
     public boolean insertData(String name,String sid, String mobile)
     {
         SQLiteDatabase db=this.getWritableDatabase();
@@ -125,6 +137,86 @@ public class StudentHelper extends SQLiteOpenHelper{
         String query="UPDATE "+ values[1] +"  SET name='"+name+"', sid='"+id+"', mobile='"+mobile+"' WHERE id='"+idd+"';";
         db.execSQL(query);
         return query;
+    }
+    public String viewAll()
+    {
+        String month;
+        switch (values[1]){
+            case "January":
+                month ="December";
+                break;
+            case "February":
+                month ="January";
+                break;
+            case "March":
+                month ="February";
+                break;
+            case "April":
+                month ="March";
+                break;
+            case "May":
+                month ="April";
+                break;
+            case "June":
+                month ="May";
+                break;
+            case "July":
+                month ="June";
+                break;
+            case "August":
+                month ="July";
+                break;
+            case "September":
+                month ="August";
+                break;
+            case "October":
+                month ="September";
+                break;
+            case "November":
+                month ="December";
+                break;
+            case "December":
+                month ="December";
+                break;
+            default:
+                month =null;
+                break;
+        }
+        Cursor res = getAllMonth(month);
+        String k = null;
+        int x;
+        if(res.getCount()==0)
+        {
+            return "No data";
+
+
+        }
+        else
+        {
+            while(res.moveToNext())
+            {
+                int count=0;
+                for(int i=4;i<=34;i++) {
+                    k=res.getString(i);
+                    if(k==null)
+                    {
+
+                    }
+                    else
+                    {
+                        count=count+1;
+                    }
+                    if(count>3)
+                    {
+                     k=k+res.getString(2)+", ";
+                    }
+
+                }
+
+            }
+        }
+        return k;
+
     }
 
 

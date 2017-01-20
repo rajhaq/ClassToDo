@@ -20,7 +20,7 @@ import java.util.Locale;
 public class EditStudent extends AppCompatActivity {
     public static StudentHelper studentDB;
     EditText editName,editID,editMobile,deleteBox;
-    Button addButton,dropButton,viewAllButton,deleteButton;
+    Button DB,addButton,dropButton,viewAllButton,deleteButton;
     TextView date;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +42,14 @@ public class EditStudent extends AppCompatActivity {
         addButton=(Button)findViewById(R.id.buttonAddStudent);
         dropButton=(Button)findViewById(R.id.buttonDrop);
         viewAllButton=(Button)findViewById(R.id.buttonViewAll);
+        DB=(Button)findViewById(R.id.buttonDB);
         deleteButton=(Button)findViewById(R.id.buttonDelete);
         date=(TextView) findViewById(R.id.todayDate);
         AdddData();
         DropData();
         viewAll();
         deleteData();
+        DropDB();
         date.setText(strDate);
 
 
@@ -94,7 +96,21 @@ public class EditStudent extends AppCompatActivity {
                     public void onClick(View v)
                     {
                         studentDB.dropTable();
-                            Toast.makeText(EditStudent.this,"May be dropped",Toast.LENGTH_LONG).show();
+                        Toast.makeText(EditStudent.this,"May be dropped",Toast.LENGTH_LONG).show();
+
+                    }
+                }
+        );
+    }
+    public void DropDB()
+    {
+        DB.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View v)
+                    {
+                        studentDB.dropDB();
+                        Toast.makeText(EditStudent.this,"DB May be dropped",Toast.LENGTH_LONG).show();
 
                     }
                 }

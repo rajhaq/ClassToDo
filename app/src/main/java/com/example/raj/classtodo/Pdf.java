@@ -1,10 +1,16 @@
 package com.example.raj.classtodo;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Environment;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -67,8 +73,29 @@ public class Pdf extends AppCompatActivity {
 
 
     }
+
+
+    public void showNo()
+    {
+        NotificationCompat.Builder builder=new NotificationCompat.Builder(this);
+        builder.setSmallIcon(R.mipmap.ic_launcher);
+        builder.setContentTitle("Class ToDo Alart");
+        builder.setContentText("Alart !! Please check if any student fall behind");
+        Intent intent=new Intent(this,Pdf.class);
+        TaskStackBuilder stackBuilder=TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(Pdf.class);
+        stackBuilder.addNextIntent(intent);
+        PendingIntent pendingIntent=stackBuilder.getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(pendingIntent);
+        NotificationManager NM=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        NM.notify(0,builder.build());
+
+
+
+    }
     public void createPDF(View view)
     {
+        showNo();
         if(studentDB.tableExist(monthSelected)) {
             Document doc = new Document(PageSize.A3.rotate());
             String outPath = Environment.getExternalStorageDirectory() + "/" + monthSelected + ".pdf";
