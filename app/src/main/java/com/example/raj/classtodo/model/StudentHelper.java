@@ -82,8 +82,28 @@ public class StudentHelper extends SQLiteOpenHelper{
 
         Cursor res=db.rawQuery("select * from "+values[1], null);
 
+        return res;
+    }
+    public Cursor getAllMonth(String month)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+
+        Cursor res=db.rawQuery("select * from "+month, null);
 
         return res;
+    }
+    public boolean tableExist(String month)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select DISTINCT tbl_name from sqlite_master where tbl_name = '" + month + "'", null);
+        if (cursor != null) {
+            if (cursor.getCount() > 0) {
+                cursor.close();
+                return true;
+            }
+            cursor.close();
+        }
+        return false;
     }
     public String updateData(String id, String date,String x)
     {

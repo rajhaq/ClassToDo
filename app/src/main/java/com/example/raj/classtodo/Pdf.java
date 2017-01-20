@@ -8,7 +8,11 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.raj.classtodo.model.StudentHelper;
 import com.itextpdf.text.Document;
@@ -25,6 +29,10 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class Pdf extends AppCompatActivity {
+    Spinner spinner;
+    int postionx;
+    String  monthSelected;
+    ArrayAdapter<CharSequence> adapter;
     public static StudentHelper studentDB;
     Calendar cal = Calendar.getInstance();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MMMM/d/E", Locale.US); // Set your locale!
@@ -39,43 +47,72 @@ public class Pdf extends AppCompatActivity {
         setContentView(R.layout.activity_pdf);
         int dbv=Integer.parseInt(values[0]);
         studentDB=new StudentHelper(this, dbv);
-       String path= Environment.getExternalStorageDirectory()+"/student.pdf";
-        File file =new File(path);
-        Intent target=new Intent(Intent.ACTION_VIEW);
-        target.setDataAndType(Uri.fromFile(file),"application/pdf");
-        target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        Intent intent = Intent.createChooser(target,"Open File");
-        try {
-            startActivity(intent);
-        }catch(ActivityNotFoundException e)
+        spinner=(Spinner) findViewById(R.id.spinnerMonth);
+        adapter=ArrayAdapter.createFromResource(this,R.array.month_name,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
 
-        }
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                monthSelected= (String) parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
     }
     public void createPDF(View view)
     {
-        EditText text=(EditText)findViewById(R.id.editPdf);
-        Document doc=new Document(PageSize.A3.rotate());
-        String outPath= Environment.getExternalStorageDirectory()+"/student2.pdf";
-        try {
-            PdfWriter.getInstance(doc,new FileOutputStream(outPath));
-            doc.open();
-            String x="Name      01  |02  |03  |04  |05  |06  |07  |08  |09  |10  |11  |12  |13  |14  |15  |16  |17  |18  |19  |20  |21  |22  |23  |24  |25  |26  |27  |28  |29  |30\n" +
-                    "Name      01  |02  |03  |04  |05  |06  |07  |08  |09  |10  |11  |12  |13  |14  |15  |16  |17  |18  |19  |20  |21  |22  |23  |24  |25  |26  |27  |28  |29  |30\n";
-            doc.add(new Paragraph(viewAll()));
-            doc.close();
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        if(studentDB.tableExist(monthSelected)) {
+            Document doc = new Document(PageSize.A3.rotate());
+            String outPath = Environment.getExternalStorageDirectory() + "/" + monthSelected + ".pdf";
+            try {
+                PdfWriter.getInstance(doc, new FileOutputStream(outPath));
+                doc.open();
+                doc.add(new Paragraph(viewAll()));
+                doc.close();
+                Toast.makeText(getBaseContext(), monthSelected+".pdf created on Storage", Toast.LENGTH_LONG).show();
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            Toast.makeText(getBaseContext(), "No Data Found", Toast.LENGTH_LONG).show();
+        }
+    }
+    public void ViewPDF(View view)
+    {
+        String path= Environment.getExternalStorageDirectory()+"/"+monthSelected+".pdf";
+        File file =new File(path);
+        if(file.exists())
+        {
+            Intent target = new Intent(Intent.ACTION_VIEW);
+            target.setDataAndType(Uri.fromFile(file), "application/pdf");
+            target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            Intent intent = Intent.createChooser(target, "Open File");
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+
+            }
+        }
+        else
+        {
+            Toast.makeText(getBaseContext(), "No Data Found", Toast.LENGTH_LONG).show();
         }
     }
     public String viewAll()
     {
-                        Cursor res = studentDB.getAllData();
-                        String j="1";
+                        Cursor res = studentDB.getAllMonth(monthSelected);
         String k;
                         int x;
                         if(res.getCount()==0)
@@ -87,7 +124,7 @@ public class Pdf extends AppCompatActivity {
                         else
                         {
                             StringBuffer buffer=new StringBuffer();
-                            buffer.append("________________________________________________________________________________"+values[1]+"__________________________________________________________________________\n");
+                            buffer.append("________________________________________________________________________________"+monthSelected+"__________________________________________________________________________\n");
                             while(res.moveToNext())
                             {
                                 x= res.getString(2).length();

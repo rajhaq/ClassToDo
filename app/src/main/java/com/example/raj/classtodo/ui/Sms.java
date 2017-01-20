@@ -52,9 +52,12 @@ public class Sms extends AppCompatActivity {
                 // String phoneNo = txtPhoneNo.getText().toString();
                 //                    sendMessage(phoneNo, message);
                 if(smsLoop()=="No data")
-                    Toast.makeText(getBaseContext(), "Please enter both phone number and message.", Toast.LENGTH_LONG).show();
-                else
-                    Toast.makeText(getBaseContext(), "Sms Sent", Toast.LENGTH_LONG).show();
+                {
+
+                }
+  //                  Toast.makeText(getBaseContext(), "Please enter both phone number and message.", Toast.LENGTH_LONG).show();
+    //            else
+//                    Toast.makeText(getBaseContext(), "Sms Sent", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -88,6 +91,7 @@ public class Sms extends AppCompatActivity {
     private void sendMessage(String phoneNo, String message){
         try {
             SmsManager smsManager = SmsManager.getDefault();
+            Toast.makeText(getBaseContext(), phoneNo, Toast.LENGTH_LONG).show();
             smsManager.sendTextMessage(phoneNo, null, message, null, null);
         } catch (Exception e) {
             e.printStackTrace();

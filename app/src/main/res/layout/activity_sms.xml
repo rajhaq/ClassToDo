@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.raj.classtodo.ui.Today$Sms">
+    android:background="@color/colorBackground"
+    tools:context="com.example.raj.classtodo.ui.Sms">
 
     <TextView
         android:text="Send sms for being absence"
@@ -34,7 +35,6 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:shadowColor="@color/delete"
         android:inputType="textMultiLine"
         android:text="Hello Parents, Your Student is absent today"
         android:ems="10"
