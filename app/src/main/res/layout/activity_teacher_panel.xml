@@ -11,45 +11,57 @@
     tools:context="com.example.raj.classtodo.ui.teacherPanel"
     android:background="@color/colorBackground">
 
-    <Button
-        android:text="Start Today"
-        android:textSize="40dp"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:id="@+id/startButton"
-        android:elevation="0dp"
-        android:onClick="goStartToday"
-        android:background="@color/buttonColor"
-        android:textColor="@color/textColor"
-        android:padding="5dp"
+
+    <TextView
+        android:id="@+id/dLabel"
+        android:layout_width="120dp"
+        android:text="3"
+        android:textSize="56sp"
+        android:textColor="#206757"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:layout_height="120dp"
+        android:layout_below="@+id/mLabel"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/mLabel"
+        android:text="July"
+        android:textSize="24sp"
+        android:textColor="#ffffff"
+        android:background="#206757"
+        android:gravity="center"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_width="120dp"
+        android:layout_height="40dp" />
 
-        />
+    <TextView
+        android:id="@+id/eLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sun"
+        android:textSize="18sp"
+        android:textColor="#206757"
+        android:layout_alignBottom="@+id/dLabel"
+        android:layout_alignRight="@+id/dLabel"
+        android:layout_alignEnd="@+id/dLabel" />
+
+    <!--
     <Button
         android:text="Month View"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:id="@+id/monthButton"
         android:onClick="goMonthView"
+        android:background="@color/buttonColor"
+        android:textColor="@color/textColor"
         android:layout_below="@+id/startButton"
         android:layout_centerHorizontal="true"
-        android:background="@color/buttonColor"
-        android:textColor="@color/textColor"
-        android:layout_margin="5dp"/>
+        android:layout_marginTop="12dp" />-->
 
-    <Button
-        android:text="Edit Student info"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/editButton"
-        android:onClick="goEdit"
-        android:background="@color/buttonColor"
-        android:textColor="@color/textColor"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="5dp"
-        android:layout_below="@+id/monthButton"
-        />
+    <!--
+
     <Button
         android:text="Notice Panel"
         android:layout_width="350dp"
@@ -58,22 +70,65 @@
         android:onClick="goNoticeEdit"
         android:background="@color/buttonColor"
         android:textColor="@color/textColor"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="5dp"
         android:layout_below="@+id/editButton"
-        />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+-->
+
     <Button
-    android:text="PDF"
+        android:text="Start Today"
+        android:textSize="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/startButton"
+        android:elevation="0dp"
+        android:onClick="goStartToday"
+        android:background="@color/buttonColor"
+        android:textColor="@color/textColor"
+        android:padding="5dp"
+
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/dLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+    android:text="Attendance List"
     android:layout_width="350dp"
     android:layout_height="wrap_content"
     android:id="@+id/PDF"
     android:onClick="goPDF"
     android:background="@color/buttonColor"
     android:textColor="@color/textColor"
-    android:layout_centerHorizontal="true"
-    android:layout_margin="5dp"
-    android:layout_below="@+id/addNoticeButton"
-    />
+        android:layout_below="@+id/startButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:text="Student Panel"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editButton"
+        android:onClick="goEdit"
+        android:background="@color/buttonColor"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="14dp"
+        android:layout_below="@+id/PDF"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+    android:text="Databasse Panel"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/editDatabase"
+    android:onClick="goDB"
+    android:background="@color/buttonColor"
+    android:textColor="@color/textColor"
+    android:layout_marginTop="14dp"
+    android:layout_below="@+id/editButton"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

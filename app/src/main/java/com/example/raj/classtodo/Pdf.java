@@ -51,6 +51,7 @@ public class Pdf extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdf);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         int dbv=Integer.parseInt(values[0]);
         studentDB=new StudentHelper(this, dbv);
         spinner=(Spinner) findViewById(R.id.spinnerMonth);
@@ -162,7 +163,7 @@ public class Pdf extends AppCompatActivity {
                                 for(int i=4;i<=34;i++) {
                                     k=res.getString(i);
                                     if(k==null)
-                                        buffer.append(i-4+"(A)-");
+                                        buffer.append(i-3+"(A)-");
                                     else
                                         buffer.append(i-4+"(P)-");
 

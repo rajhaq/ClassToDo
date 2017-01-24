@@ -11,15 +11,6 @@
     android:background="@color/colorBackground"
     tools:context="com.example.raj.classtodo.ui.Sms">
 
-    <TextView
-        android:text="Send sms for being absence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/smshint"
-        android:textSize="18sp" />
-
     <Button
         android:text="Cancel"
         android:background="@color/delete"
@@ -34,18 +25,25 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="100dp"
         android:inputType="textMultiLine"
-        android:text="Hello Parents, Your Student is absent today"
+        android:text="Dear parents,
+        We would like to ecpress our concern that your child has been absent from scheduled class. We would appreciate you could advice us on the absence.
+
+Sincerely,
+Aandandaniketan School"
         android:ems="10"
         android:id="@+id/smsBody"
+        android:background="@drawable/border"
+        android:layout_margin="3dp"
+        android:padding="2dp"
         android:layout_below="@+id/smshint"
         android:layout_marginTop="27dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_height="260dp" />
 
     <Button
-        android:text="Confirm"
+        android:text="Send Now"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/textColor"
@@ -54,5 +52,14 @@
         android:layout_below="@+id/smsBody"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="SMS to absent students"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/smshint"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

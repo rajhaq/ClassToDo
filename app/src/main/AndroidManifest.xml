@@ -46,13 +46,22 @@
         <activity
             android:name=".ui.noticePanel"
             android:parentActivityName=".ui.teacherPanel" />
-        <activity android:name=".ui.EditStudent" />
-        <activity android:name=".ui.AddToday" />
+        <activity
+            android:name=".ui.EditStudent"
+            android:parentActivityName=".ui.teacherPanel" />
+        <activity
+            android:name=".ui.AddToday"
+            android:parentActivityName=".ui.teacherPanel" />
         <activity
             android:name=".ui.DetailActivity"
             android:parentActivityName=".ui.AddToday" />
-        <activity android:name=".Pdf" />
-        <activity android:name=".ui.Sms"></activity>
+        <activity
+            android:name=".Pdf"
+            android:parentActivityName=".ui.teacherPanel" />
+        <activity
+            android:name=".ui.Sms"
+            android:parentActivityName=".ui.AddToday" />
+        <activity android:name=".ui.Database"></activity>
     </application>
 
 </manifest>

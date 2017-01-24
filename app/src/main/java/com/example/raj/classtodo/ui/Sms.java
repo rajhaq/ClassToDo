@@ -43,6 +43,7 @@ public class Sms extends AppCompatActivity {
         smsBody=(EditText)findViewById(R.id.smsBody);
         sendSms = (Button) this.findViewById(R.id.buttonSend);
         cancelSms= (Button) this.findViewById(R.id.buttonNo);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         sendSms.setOnClickListener(new View.OnClickListener() {
 

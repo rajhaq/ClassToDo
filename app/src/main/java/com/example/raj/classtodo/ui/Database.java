@@ -17,11 +17,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class EditStudent extends AppCompatActivity {
+public class Database extends AppCompatActivity {
     public static StudentHelper studentDB;
     EditText editName,editID,editMobile,deleteBox;
     Button DB,addButton,dropButton,viewAllButton,deleteButton;
     TextView date;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Calendar cal = Calendar.getInstance();
@@ -29,52 +30,34 @@ public class EditStudent extends AppCompatActivity {
         String strDate = sdf.format(cal.getTime());
 
         String[] values = strDate.split("/",0);
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_student);
+        setContentView(R.layout.activity_database);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         int dbv=Integer.parseInt(values[0]);
         studentDB=new StudentHelper(this, dbv);
 
-   //     deleteBox =(EditText)findViewById(R.id.deleteID);
-        editName =(EditText)findViewById(R.id.editStudentName);
-        editID =(EditText)findViewById(R.id.editStudentId);
-        editMobile =(EditText)findViewById(R.id.editStudentMobile);
-        addButton=(Button)findViewById(R.id.buttonAddStudent);
- //       dropButton=(Button)findViewById(R.id.buttonDrop);
+        deleteBox =(EditText)findViewById(R.id.deleteID);
+ //       editName =(EditText)findViewById(R.id.editStudentName);
+   //     editID =(EditText)findViewById(R.id.editStudentId);
+     //   editMobile =(EditText)findViewById(R.id.editStudentMobile);
+       // addButton=(Button)findViewById(R.id.buttonAddStudent);
+        //       dropButton=(Button)findViewById(R.id.buttonDrop);
         viewAllButton=(Button)findViewById(R.id.buttonViewAll);
- //       DB=(Button)findViewById(R.id.buttonDB);
-  //      deleteButton=(Button)findViewById(R.id.buttonDelete);
-  //      date=(TextView) findViewById(R.id.todayDate);
-        AdddData();
-    //    DropData();
+        DB=(Button)findViewById(R.id.buttonDB);
+        deleteButton=(Button)findViewById(R.id.buttonDelete);
+        //      date=(TextView) findViewById(R.id.todayDate);
+   //     AdddData();
+        //    DropData();
         viewAll();
-    //    deleteData();
-    //    DropDB();
-    //    date.setText(strDate);
+        deleteData();
+        DropDB();
+        //    date.setText(strDate);
 
 
     }
-    public void AdddData()
-    {
-        addButton.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View v)
-                    {
-                        boolean isInster=studentDB.insertData(editName.getText().toString(),editID.getText().toString(),editMobile.getText().toString());
-                        if(isInster==true)
-                            Toast.makeText(EditStudent.this,"Data inserted",Toast.LENGTH_LONG).show();
-                        else
-                            Toast.makeText(EditStudent.this,"Data not inserted",Toast.LENGTH_LONG).show();
 
-                    }
-                }
-        );
-
-    }
-/*    public void deleteData()
+    public void deleteData()
     {
         deleteButton.setOnClickListener(
                 new View.OnClickListener()
@@ -83,28 +66,28 @@ public class EditStudent extends AppCompatActivity {
                     {
                         studentDB.deleteData(deleteBox.getText().toString());
 
-                            Toast.makeText(EditStudent.this,"Data deleted",Toast.LENGTH_LONG).show();
+                        Toast.makeText(Database.this,"Data deleted",Toast.LENGTH_LONG).show();
 
                     }
                 }
         );
 
-    }*/
-/*    public void DropData()
-    {
-        dropButton.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View v)
+    }
+    /*    public void DropData()
+        {
+            dropButton.setOnClickListener(
+                    new View.OnClickListener()
                     {
-                        studentDB.dropTable();
-                        Toast.makeText(EditStudent.this,"May be dropped",Toast.LENGTH_LONG).show();
+                        public void onClick(View v)
+                        {
+                            studentDB.dropTable();
+                            Toast.makeText(EditStudent.this,"May be dropped",Toast.LENGTH_LONG).show();
 
+                        }
                     }
-                }
-        );
-    }*/
-/*    public void DropDB()
+            );
+        }*/
+    public void DropDB()
     {
         DB.setOnClickListener(
                 new View.OnClickListener()
@@ -112,12 +95,12 @@ public class EditStudent extends AppCompatActivity {
                     public void onClick(View v)
                     {
                         studentDB.dropDB();
-                        Toast.makeText(EditStudent.this,"DB May be dropped",Toast.LENGTH_LONG).show();
+                        Toast.makeText(Database.this,"DB May be dropped",Toast.LENGTH_LONG).show();
 
                     }
                 }
         );
-    }*/
+    }
     public void viewAll()
     {
         viewAllButton.setOnClickListener(

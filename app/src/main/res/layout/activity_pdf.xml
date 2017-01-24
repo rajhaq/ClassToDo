@@ -12,7 +12,7 @@
     tools:context="com.example.raj.classtodo.Pdf">
 
     <Button
-        android:text="View"
+        android:text="View as PDF"
         android:layout_width="match_parent"
         android:textColor="@color/textColor"
         android:background="@color/buttonColor"
