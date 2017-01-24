@@ -22,23 +22,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.teacherPanel" />
         <activity
-            android:name=".ui.teacherPanel"
-            android:parentActivityName=".MainActivity" />
+            android:name=".MainActivity" />
         <activity
             android:name=".ui.studentPanel"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ui.teacherPanel" />
         <activity
             android:name=".ui.patentsPanel"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ui.teacherPanel" />
         <activity
             android:name=".TeacherLoginActivity"
             android:label="@string/title_activity_teacher_login"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".ui.teacherPanel">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.raj.classtodo.MainActivity" />
+                android:value="com.example.raj.classtodo.ui.teacherPanel" />
         </activity>
         <activity
             android:name=".ui.Today"
