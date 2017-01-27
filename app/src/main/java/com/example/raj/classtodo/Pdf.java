@@ -11,11 +11,13 @@ import android.net.Uri;
 import android.os.Environment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -36,6 +38,7 @@ import java.util.Locale;
 
 public class Pdf extends AppCompatActivity {
     Spinner spinner;
+    Button view;
     int postionx;
     String  monthSelected;
     ArrayAdapter<CharSequence> adapter;
@@ -55,6 +58,7 @@ public class Pdf extends AppCompatActivity {
         int dbv=Integer.parseInt(values[0]);
         studentDB=new StudentHelper(this, dbv);
         spinner=(Spinner) findViewById(R.id.spinnerMonth);
+        view=(Button)findViewById(R.id.buttonView);
         adapter=ArrayAdapter.createFromResource(this,R.array.month_name,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -72,7 +76,7 @@ public class Pdf extends AppCompatActivity {
             }
         });
 
-
+        view();
     }
 
 
@@ -119,6 +123,7 @@ public class Pdf extends AppCompatActivity {
     }
     public void ViewPDF(View view)
     {
+        createPDF(view);
         String path= Environment.getExternalStorageDirectory()+"/"+monthSelected+".pdf";
         File file =new File(path);
         if(file.exists())
@@ -137,6 +142,48 @@ public class Pdf extends AppCompatActivity {
         {
             Toast.makeText(getBaseContext(), "No Data Found", Toast.LENGTH_LONG).show();
         }
+    }
+    public void view()
+    {
+
+        view.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View view) {
+                        int i=0;
+                        String k;
+                        Cursor res = studentDB.getAllData();
+                        if(res.getCount()==0)
+                        {
+                            showMsg("ERROR","Nothing Found");
+
+                            return;
+
+                        }
+                        else
+                        {
+                            StringBuffer buffer=new StringBuffer();
+                            while(res.moveToNext())
+                            {
+
+                                buffer.append("Name :"+res.getString(1)+"\n");
+                                buffer.append("ID :"+res.getString(2)+"\n");
+                                for(i=4;i<=34;i++)
+                                {
+                                    k=res.getString(i);
+                                    if(k!=null)
+                                        buffer.append(i-3);
+
+                                }
+                            }
+                            buffer.append("\n");
+                            showMsg("Student Attendance List", buffer.toString());
+                        }
+
+                    }
+                }
+        );
     }
     public String viewAll()
     {
@@ -169,11 +216,18 @@ public class Pdf extends AppCompatActivity {
 
                                 }
 
-                                buffer.append("Bonus:"+res.getString(35));
                                 buffer.append("\n");
                             }
                             return buffer.toString();
                         }
 
+    }
+    public void showMsg(String title,String Message)
+    {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+        builder.show();
     }
 }

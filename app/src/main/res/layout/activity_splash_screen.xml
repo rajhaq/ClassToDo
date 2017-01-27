@@ -24,8 +24,8 @@
         android:layout_alignStart="@+id/imageView" />
 
     <ImageView
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
         android:src="@drawable/name"
         android:id="@+id/imageView"
         android:contentDescription="Logo"

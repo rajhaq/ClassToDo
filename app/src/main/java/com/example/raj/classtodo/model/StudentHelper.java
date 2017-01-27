@@ -38,7 +38,7 @@ public class StudentHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query="CREATE TABLE "+values[1]+" ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, sid INTEGER NOT NULL UNIQUE, mobile INTEGER NOT NULL UNIQUE, " +
+        String query="CREATE TABLE "+values[1]+" ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, sid INTEGER NOT NULL UNIQUE, mobile INTEGER NOT NULL UNIQUE, " +
                 "date1 TEXT, date2 TEXT, date3 TEXT, date4 TEXT, date5 TEXT, date6 TEXT, date7 TEXT, date8 TEXT, date9 TEXT, date10 TEXT, " +
                 "date11 TEXT, date12 TEXT, date13 TEXT, date14 TEXT, date15 TEXT, date16 TEXT, date17 TEXT, date18 TEXT, date19 TEXT NULL, date20 TEXT, " +
                 "date21 TEXT, date22 TEXT, date23 TEXT, date24 TEXT, date25 TEXT, date26 TEXT, date27 TEXT, date28 TEXT, date29 TEXT, date30 TEXT, date31 TEXT,bonus INTEGER " +
@@ -70,6 +70,7 @@ public class StudentHelper extends SQLiteOpenHelper{
 
     public boolean insertData(String name,String sid, String mobile)
     {
+
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
         contentValues.put("name ",name);

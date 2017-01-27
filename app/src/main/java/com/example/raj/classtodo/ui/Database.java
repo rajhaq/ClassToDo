@@ -144,11 +144,4 @@ public class Database extends AppCompatActivity {
         builder.show();
     }
 
-
-    /**
-     * Created by Raj on 1/24/2017.
-     */
-
-    public static class EditWithBonus {
-    }
 }

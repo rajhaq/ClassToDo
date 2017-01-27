@@ -15,13 +15,13 @@
         android:text="Student List"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif-smallcaps"
         android:layout_alignParentTop="true"
         android:paddingTop="5dp"
-        android:textColor="@color/textColor"
+        android:textColor="@color/buttonColor"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:background="@color/buttonColor"
+        android:background="@color/textColor"
         android:textSize="25dp"
         android:id="@+id/textView4" />
 

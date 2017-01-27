@@ -11,22 +11,21 @@
     android:background="@color/colorBackground"
     tools:context="com.example.raj.classtodo.ui.Sms">
 
-    <Button
-        android:text="Cancel"
-        android:background="@color/delete"
-        android:textColor="@color/textColor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/buttonNo"
-        android:onClick="goStudentList" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:padding="20dp"
+        android:background="@color/textColor"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
 
     <EditText
         android:layout_width="match_parent"
         android:inputType="textMultiLine"
-        android:text="Dear parents,\nWe would like to express our concern that your child has been absent from scheduled class. We would appreciate you could advice us on the absence.\nSincerely,\nAandandaniketan School"
+        android:text="Dear parents,We would like to express our concern that your child has been absent from scheduled class. We would appreciate you could advice us on the absence.-Sincerely, Aandandaniketan School"
         android:ems="10"
         android:id="@+id/smsBody"
         android:background="@drawable/border"
@@ -36,7 +35,7 @@
         android:layout_marginTop="27dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_height="260dp" />
+        android:layout_height="180dp" />
 
     <Button
         android:text="Send Now"
@@ -54,8 +53,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/smshint"
-        android:textSize="18sp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/buttonColor"
+        android:paddingBottom="25dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+        <Button
+            android:text="Cancel"
+            android:background="@color/delete"
+            android:textColor="@color/textColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/buttonNo"
+            android:onClick="goStudentList" />
 
 </RelativeLayout>

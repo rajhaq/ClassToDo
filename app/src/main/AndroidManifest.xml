@@ -32,14 +32,6 @@
             android:name=".ui.patentsPanel"
             android:parentActivityName=".ui.teacherPanel" />
         <activity
-            android:name=".TeacherLoginActivity"
-            android:label="@string/title_activity_teacher_login"
-            android:parentActivityName=".ui.teacherPanel">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.raj.classtodo.ui.teacherPanel" />
-        </activity>
-        <activity
             android:name=".ui.Today"
             android:parentActivityName=".ui.teacherPanel" />
         <activity

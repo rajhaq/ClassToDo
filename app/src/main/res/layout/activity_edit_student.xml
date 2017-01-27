@@ -12,6 +12,17 @@
     android:background="@color/colorBackground">
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/textColor"
+        android:paddingTop="10dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="25dp">
+
+
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -95,6 +106,28 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="19dp" />
 
+    <TextView
+        android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/editStudentName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textSize="18sp" />
+
+        <TextView
+            android:text="Add Student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView7"
+            android:layout_alignParentTop="true"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="24sp"
+            android:textColor="@color/buttonColor" />
+    </RelativeLayout>
+
     <Button
         android:text="Studnt List"
         android:padding="5dp"
@@ -108,18 +141,6 @@
         android:background="@color/buttonColor"
         android:textColor="@color/textColor"
         />
-
-
-
-    <TextView
-        android:text="Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:layout_alignTop="@+id/editStudentName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="18sp" />
 
 
 
