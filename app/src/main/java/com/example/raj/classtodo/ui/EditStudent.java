@@ -63,11 +63,22 @@ public class EditStudent extends AppCompatActivity {
                 {
                     public void onClick(View v)
                     {
-                        boolean isInster=studentDB.insertData(editName.getText().toString(),editID.getText().toString(),editMobile.getText().toString());
-                        if(isInster==true)
-                            Toast.makeText(EditStudent.this,"Data inserted",Toast.LENGTH_LONG).show();
+                        Cursor res = studentDB.student(editID.getText().toString());
+                        if(res.getCount()==0)
+                        {
+                            boolean isInster=studentDB.insertData(editName.getText().toString(),editID.getText().toString(),editMobile.getText().toString());
+                            if(isInster==true)
+                                Toast.makeText(EditStudent.this,"Data inserted",Toast.LENGTH_LONG).show();
+                            else
+                                Toast.makeText(EditStudent.this,"Data not inserted",Toast.LENGTH_LONG).show();
+
+                        }
                         else
-                            Toast.makeText(EditStudent.this,"Data not inserted",Toast.LENGTH_LONG).show();
+                        {
+                            Toast.makeText(EditStudent.this,"This Student ID exits or Wrong Data",Toast.LENGTH_LONG).show();
+
+                        }
+
 
                     }
                 }
@@ -143,6 +154,7 @@ public class EditStudent extends AppCompatActivity {
                                 buffer.append("Name :"+res.getString(1)+"\n");
                                 buffer.append("ID :"+res.getString(2)+"\n");
                                 buffer.append("Mobile :"+res.getString(3)+"\n");
+                                buffer.append("---------------------\n");
                             }
                             showMsg("Student List", buffer.toString());
                         }

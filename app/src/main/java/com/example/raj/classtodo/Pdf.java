@@ -173,9 +173,10 @@ public class Pdf extends AppCompatActivity {
                                 {
                                     k=res.getString(i);
                                     if(k!=null)
-                                        buffer.append(i-3);
+                                        buffer.append(i-3+" ,");
 
                                 }
+                                buffer.append("\n---------------------\n");
                             }
                             buffer.append("\n");
                             showMsg("Student Attendance List", buffer.toString());
@@ -212,7 +213,7 @@ public class Pdf extends AppCompatActivity {
                                     if(k==null)
                                         buffer.append(i-3+"(A)-");
                                     else
-                                        buffer.append(i-4+"(P)-");
+                                        buffer.append(i-3+"(P)-");
 
                                 }
 

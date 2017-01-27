@@ -22,38 +22,24 @@
 
 
         <TextView
-            android:text="Attendance List"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView12"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textColor="@color/buttonColor"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
         android:text="Select Month:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView5"
-            android:layout_above="@+id/spinnerMonth"
+            android:layout_above="@+id/button2"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="49dp" />
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:id="@+id/spinnerMonth"
             android:background="@drawable/border"
-            android:layout_above="@+id/buttonPdf"
+            android:layout_marginTop="51dp"
+            android:layout_below="@+id/textView12"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="11dp" />
+            android:layout_alignParentStart="true" />
 
         <Button
         android:text="View as PDF"
@@ -63,21 +49,34 @@
         android:layout_height="wrap_content"
         android:id="@+id/button2"
             android:onClick="ViewPDF"
-            android:layout_alignParentBottom="true"
+            android:layout_marginTop="14dp"
+            android:layout_below="@+id/spinnerMonth"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <Button
-        android:text="Create"
-        android:layout_width="match_parent"
-        android:textColor="@color/textColor"
+        <TextView
+            android:text="Attendance List"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-        android:id="@+id/buttonPdf"
-        android:background="@color/buttonColor"
-        android:onClick="createPDF"
-            android:layout_above="@+id/button2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:id="@+id/textView12"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textColor="@color/buttonColor"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        <!--
+                <Button
+                android:text="Create"
+                android:layout_width="match_parent"
+                android:textColor="@color/textColor"
+                    android:layout_height="wrap_content"
+                android:id="@+id/buttonPdf"
+                android:background="@color/buttonColor"
+                android:onClick="createPDF"
+                    android:layout_above="@+id/button2"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />-->
     </RelativeLayout>
 
     <Button

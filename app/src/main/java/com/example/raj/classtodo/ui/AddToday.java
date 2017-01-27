@@ -123,11 +123,11 @@ public class AddToday extends AppCompatActivity implements StudentAdapter.ItemCl
         if (item.isFavourite()){
             item.setFavourite(false);
             String x=studentDB.updateData2(item.getId(),values[2]);
-            Toast.makeText(AddToday.this,x,Toast.LENGTH_LONG).show();
+     //       Toast.makeText(AddToday.this,x,Toast.LENGTH_LONG).show();
         } else {
             item.setFavourite(true);
             String x=studentDB.updateData(item.getId(),values[2],"1");
-            Toast.makeText(AddToday.this,x,Toast.LENGTH_LONG).show();
+       //     Toast.makeText(AddToday.this,x,Toast.LENGTH_LONG).show();
         }
 
 

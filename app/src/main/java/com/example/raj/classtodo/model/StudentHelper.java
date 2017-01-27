@@ -105,6 +105,14 @@ public class StudentHelper extends SQLiteOpenHelper{
 
         return res;
     }
+    public Cursor student(String month)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+
+        Cursor res=db.rawQuery("select * from "+values[1]+" where sid='"+month+"'", null);
+
+        return res;
+    }
     public boolean tableExist(String month)
     {
         SQLiteDatabase db=this.getWritableDatabase();

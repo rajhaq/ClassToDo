@@ -126,6 +126,7 @@ public class Database extends AppCompatActivity {
                                 buffer.append("Name :"+res.getString(1)+"\n");
                                 buffer.append("ID :"+res.getString(2)+"\n");
                                 buffer.append("Mobile :"+res.getString(3)+"\n");
+                                buffer.append("---------------------\n");
                             }
                             showMsg("Student List", buffer.toString());
                         }
