@@ -51,7 +51,7 @@ public class Database extends AppCompatActivity {
         //    DropData();
         viewAll();
         deleteData();
-        DropDB();
+        DropData();
         //    date.setText(strDate);
 
 
@@ -73,34 +73,20 @@ public class Database extends AppCompatActivity {
         );
 
     }
-    /*    public void DropData()
+        public void DropData()
         {
-            dropButton.setOnClickListener(
+            DB.setOnClickListener(
                     new View.OnClickListener()
                     {
                         public void onClick(View v)
                         {
                             studentDB.dropTable();
-                            Toast.makeText(EditStudent.this,"May be dropped",Toast.LENGTH_LONG).show();
+                            Toast.makeText(Database.this,"table Dropped",Toast.LENGTH_LONG).show();
 
                         }
                     }
             );
-        }*/
-    public void DropDB()
-    {
-        DB.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View v)
-                    {
-                        studentDB.dropDB();
-                        Toast.makeText(Database.this,"DB May be dropped",Toast.LENGTH_LONG).show();
-
-                    }
-                }
-        );
-    }
+        }
     public void viewAll()
     {
         viewAllButton.setOnClickListener(
